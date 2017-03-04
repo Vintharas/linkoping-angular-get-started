@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Product } from "./products";
+import { Observable } from "rxjs/Observable";
+import { Http } from "@angular/http";
+import 'rxjs';
+// normally you only import what you use
+// import "rxjs/add/operator/map";
+
 
 const products: Product[] = [
 {name: 'Wand of Lightning', description: 'A powerful wand of ligthning.', price: 50, imageUrl: '/assets/images/wand.png'},
@@ -14,14 +20,23 @@ const products: Product[] = [
 @Injectable()
 export class ProductsService {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   getAll(): Product[] {
     return products;
   }
 
+  getAllAsync(): Observable<Product[]> {
+    return this.http
+      .get('http://localhost:3000/articles')
+      .map(r => r.json())
+      .delay(1000); // delay to illustrate longer network call
+  }
+
   orderProduct(product: Product) {
     console.log(`Ordering ${product.name} from the shop`);
   }
+
+
 
 }
