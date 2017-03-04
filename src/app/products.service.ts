@@ -20,4 +20,8 @@ export class ProductsService {
     return products;
   }
 
+  orderProduct(product: Product) {
+    console.log(`Ordering ${product.name} from the shop`);
+  }
+
 }

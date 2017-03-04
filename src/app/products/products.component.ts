@@ -16,8 +16,8 @@ export class ProductsComponent implements OnInit {
     this.products = this.productsService.getAll();
   }
 
-  buyProduct(product: Product) {
-    console.log(`You bought product ${product.name} for ${product.price}! Yey!`);
+  orderProduct(product: Product){
+    this.productsService.orderProduct(product);
   }
 
 }
