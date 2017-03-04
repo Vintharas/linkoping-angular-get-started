@@ -4,8 +4,9 @@
 <section class="description">
   <img [src]="product.imageUrl">
   <p>{{product.description}}</p>
-  <p>Price: {{product.price | goldCoins }}</p>
+  <p>Price: {{product.price | silverCoins }}</p>
 </section>
 <footer>
   <button (click)="buyProduct(product)">Buy</button>
+  <a [routerLink]="['/products', product.id]">More info</a>
 </footer>

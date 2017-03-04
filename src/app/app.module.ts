@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
@@ -11,6 +12,26 @@ import { GoldCoinsPipe } from './gold-coins.pipe';
 
 import { ProductsService } from './products.service';
 import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from "./product-details/product-details.component";
+
+import { MyCommonModule } from './common/my-common.module';
+
+const routes: Routes = [
+   {
+    path: 'products',
+    component: ProductsComponent,
+   },
+   {
+    path: 'products/:id',
+    component: ProductDetailsComponent
+   },
+  // map '/' to '/persons' as our default route
+  {
+    path: '',
+    redirectTo: '/products',
+    pathMatch: 'full'
+  },
+];
 
 @NgModule({
   declarations: [
@@ -19,12 +40,15 @@ import { ProductComponent } from './product/product.component';
     FooterComponent,
     ProductsComponent,
     GoldCoinsPipe,
-    ProductComponent
+    ProductComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes),
+    MyCommonModule
   ],
   providers: [
     ProductsService
