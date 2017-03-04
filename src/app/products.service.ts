@@ -29,7 +29,10 @@ export class ProductsService {
   getAllAsync(): Observable<Product[]> {
     return this.http
       .get('http://localhost:3000/articles')
-      .map(r => r.json())
+      .map(r => {
+        // throw new Error('Waddafuck!');
+        return r.json();
+      })
       .delay(1000); // delay to illustrate longer network call
   }
 

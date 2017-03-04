@@ -4,4 +4,7 @@
                   (onBuy)="orderProduct($event)">
     </shop-product>
   </div>
+  <div *ngIf="errorMessage" style="color:red;">
+    {{errorMessage}}
+  </div>
 </section>

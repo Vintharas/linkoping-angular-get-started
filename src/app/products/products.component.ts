@@ -9,14 +9,24 @@ import { ProductsService } from "../products.service";
 })
 export class ProductsComponent implements OnInit {
   products: Product[];
+  errorMessage: string;
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.productsService
         .getAllAsync()
-        .subscribe(p => this.products = p);
-    //this.products = this.productsService.getAllAsync();
+        .subscribe(
+          /* onNext */ p => this.products = p,
+          /* onError */ e => {
+            console.error(e);
+            this.errorMessage = e.message;
+          });
+
+
+    // you can use the async pipe
+    // to bind observables directly to your UI
+    // this.products = this.productsService.getAllAsync();
   }
 
   orderProduct(product: Product) {
