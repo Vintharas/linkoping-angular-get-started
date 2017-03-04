@@ -11,6 +11,7 @@
   </section>
   <section>
    <h2>Review</h2>
+   <add-review-form (onAddReview)="saveReview($event)"></add-review-form>
    <user-review *ngFor="let review of product.reviews" [review]="review"></user-review>
   </section>
   <button (click)="goBack()">Back</button>

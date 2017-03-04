@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from "../products.service";
-import { Product } from "../products";
+import { Product, UserReview } from "../products";
 
 @Component({
   selector: 'shop-product-details',
@@ -26,6 +26,11 @@ export class ProductDetailsComponent implements OnInit {
     this.router.navigate(['/products']);
     // or
     // history.back();
+  }
+
+  saveReview(review: UserReview) {
+    this.product.reviews.push(review);
+    // TODO: update product in backend
   }
 
 }

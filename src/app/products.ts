@@ -11,5 +11,10 @@ export class UserReview {
   title: string;
   content: string;
   rating: number;
+
+  constructor() {
+    this.author = "Jaime"; // "logged in" user
+    this.rating = 3;
+  }
 }
 
