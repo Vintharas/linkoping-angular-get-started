@@ -15,6 +15,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 
 import { MyCommonModule } from './common/my-common.module';
+import { UserReviewComponent } from './user-review/user-review.component';
 
 const routes: Routes = [
    {
@@ -41,7 +42,8 @@ const routes: Routes = [
     ProductsComponent,
     GoldCoinsPipe,
     ProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    UserReviewComponent
   ],
   imports: [
     BrowserModule,

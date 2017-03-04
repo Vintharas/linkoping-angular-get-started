@@ -3,4 +3,13 @@ export class Product {
   description: string;
   price: number;
   imageUrl: string;
+  reviews: UserReview[];
 }
+
+export class UserReview {
+  author: string;
+  title: string;
+  content: string;
+  rating: number;
+}
+
